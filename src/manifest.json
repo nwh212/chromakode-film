@@ -4,7 +4,7 @@
   "version": "@version",
   "kind": "filter",
   "stage": "display",
-  "description": "Kodachrome 64 slide film as the Lightroom kit makes it: purer primaries, rich reds, olive greens, deep blue skies, dense shadows, with the film's grain, halation and softness. The look works as soon as you add it; tick extras to build on it, and they always run in the kit's order. Meant for the Display stage.",
+  "description": "Kodachrome 64 slide film: purer primaries, rich reds, olive greens, deep blue skies, dense shadows, with the film's grain, halation and softness. The look works as soon as you add it; tick extras to build on it, and they always run in a fixed order. Meant for the Display stage.",
   "author": "nwh212",
   "icon": "@icon",
   "header": {

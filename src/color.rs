@@ -1,9 +1,9 @@
-//! Colour helpers shared by the kit's steps: sRGB encoding, tone curves, HSL colour bands.
+//! Colour helpers shared by the filter's steps: sRGB encoding, tone curves, HSL colour bands.
 //! No host calls; everything here runs natively in the tests.
 
 pub type Rgb = [f32; 3];
 
-/// Rec.709 luminance weights (linear light), as the recipe sheet gives them.
+/// Rec.709 luminance weights (linear light).
 pub const LUMA_709: Rgb = [0.2126, 0.7152, 0.0722];
 /// Rec.601 luma weights (screen values), the Denoise step's brightness.
 pub const LUMA_601: Rgb = [0.299, 0.587, 0.114];
@@ -109,7 +109,7 @@ impl Default for Transfer {
 
 const LUT_N: usize = 2048;
 
-/// A tone curve on 0–1 screen values: a smooth, monotone curve through the sheet's points
+/// A tone curve on 0–1 screen values: a smooth, monotone curve through its points
 /// (monotone cubic, so it never overshoots between points), tabulated.
 #[derive(Clone)]
 pub struct Curve {
@@ -229,7 +229,7 @@ pub fn lerp3(a: Rgb, b: Rgb, t: f32) -> Rgb {
 }
 
 // ---------------------------------------------------------------------------------------------
-// HSL colour bands (the eight Lightroom-style bands of the recipe sheet)
+// HSL colour bands (eight bands around the hue circle)
 // ---------------------------------------------------------------------------------------------
 
 /// One colour band's change: hue in degrees, saturation and lightness in percent.
@@ -317,7 +317,7 @@ impl BandGate {
         saturation: 0.5,
         chroma: 0.15,
     };
-    /// Muted colours change too, as in Lightroom's colour mixer (ChromaKode 64); greys still don't.
+    /// Muted colours change too (ChromaKode 64); greys still don't.
     pub const MUTED: BandGate = BandGate {
         saturation: 0.15,
         chroma: 0.05,

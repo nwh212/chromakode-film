@@ -1,4 +1,4 @@
-//! The Kodachrome 64 Kit: every step of the recipe sheet, run in the sheet's order on one buffer.
+//! The film kit: every step, run in a fixed order on one buffer.
 //!
 //! Normalize Exposure → Coolness → Denoise → Kodachrome 64 → Color Shift → HC → Found →
 //! Lifted Fade → Warm Band
@@ -15,13 +15,11 @@ use crate::film::{self, Character, Grain, GrainStyle, HalationStyle, Shoulder};
 use crate::print::{GOLD200, PURPLE, Print, PrintParams, STILL800T};
 
 // ---------------------------------------------------------------------------------------------
-// The recipe sheet's numbers
+// ChromaKode 64's numbers
 // ---------------------------------------------------------------------------------------------
 
-// The Kodachrome 64 step's numbers start from the recipe sheet's and are fitted to the Lightroom kit
-// itself (Lightroom's own rendering of a photo, before and after the kit, with Normalize, Cool 25,
-// Color Shift, HC and Lifted Fade), with hue shifts held close to the sheet's and neighbouring
-// bands' shifts kept close, so colours change smoothly.
+// The Kodachrome 64 step's numbers are fitted step by step (Normalize, Cool 25, Color Shift, HC and
+// Lifted Fade), with neighbouring bands' hue shifts kept close, so colours change smoothly.
 
 /// Kodachrome 64: the dye matrix (rows add up to 1, so greys stay grey).
 pub const DYE_MATRIX: [Rgb; 3] = [
@@ -88,8 +86,7 @@ pub const SHIFT_BANDS: Bands = [
     band(6.0, 0.0, 0.0),    // magenta
 ];
 
-/// Cool 25: white-balance gains in linear light (fitted to the Lightroom kit's Cool 25; overall
-/// brightness kept).
+/// Cool 25: white-balance gains in linear light (overall brightness kept).
 /// Coolness scales them: 25 steps is exactly this, 50 is this twice over, and so on.
 pub const COOL_25: Rgb = [0.888, 1.025, 1.078];
 
@@ -125,10 +122,10 @@ pub const FOUND_VIGNETTE_START: f32 = 0.45;
 pub const FADE_CURVE: [(f32, f32); 4] = [(0.0, 0.085), (0.18, 0.2), (0.5, 0.5), (1.0, 0.975)];
 
 /// Normalize Exposure: target average (linear) and largest change (stops).
-/// ChromaKode 64's Normalize: a fixed exposure lift in stops (the Lightroom kit's Normalize Exposure).
+/// ChromaKode 64's Normalize: a fixed exposure lift in stops.
 pub const NORMALIZE_EXPOSURE: f32 = 0.577;
 pub const NORMALIZE_TARGET: f32 = 0.153;
-/// Normalize's black point, as a multiple of [`TYPICAL_BLACK`] (0: none, as the sheet has it;
+/// Normalize's black point, as a multiple of [`TYPICAL_BLACK`] (0: none, as ChromaKode 64 has it;
 /// ChromaGold 200's print has one).
 pub const NORMALIZE_BLACK: f32 = 0.0;
 pub const NORMALIZE_MAX_BLACK: f32 = 0.05;
@@ -140,7 +137,7 @@ pub const NORMALIZE_MAX_STOPS: f32 = 1.5;
 /// Most points Normalize Exposure's measurement reads.
 pub const NORMALIZE_SAMPLES: usize = 250_000;
 
-/// Warm Band: the Lightroom kit's Banding step, measured from it on two photos: brighter, warm midtones, blue
+/// Warm Band: brighter, warm midtones, blue
 /// shadows pulled down, a little more saturation; then ±1.2 steps of 255 of triangular noise so
 /// smooth skies don't show steps.
 pub const WARM_SATURATION: f32 = 1.159;
@@ -192,7 +189,7 @@ pub struct Look {
 }
 
 impl Look {
-    /// The kit's own numbers (the constants above).
+    /// ChromaKode 64's own numbers (the constants above).
     pub fn standard() -> Self {
         Look {
             dye: DYE_MATRIX,
@@ -224,7 +221,7 @@ impl Default for Look {
 // The film itself is a physical model of the C-41 negative and its print, from Kodak's data sheet
 // (E-7022): `print.rs`. On top of it, only what Gold 200 is known for beyond its sheet: yellows
 // and oranges a little brighter, greens toward olive, reds a touch toward carmine.
-// As in Lightroom's colour mixer, muted colours take these too; greys don't.
+// Muted colours take these too; greys don't.
 
 pub const GOLD_BANDS: Bands = [
     band(-2.0, -4.0, 0.0),  // red: a touch toward carmine
@@ -258,8 +255,8 @@ pub const UNDER_GRAIN: f32 = 0.8;
 /// Sun Cast (Gold): the soft yellow cast Gold takes in harsh midday sun, strongest in the light.
 pub const SUN_TINT: Rgb = [0.035, 0.02, -0.06];
 
-/// ChromaKode 64's Color Shift, HC and Lifted Fade, fitted to the Lightroom kit's (ChromaGold 200
-/// keeps the sheet's: [`SHIFT_BANDS`], [`HC_CURVE`], [`FADE_CURVE`]).
+/// ChromaKode 64's own Color Shift, HC and Lifted Fade (ChromaGold 200
+/// keeps the plain ones: [`SHIFT_BANDS`], [`HC_CURVE`], [`FADE_CURVE`]).
 pub const K64_SHIFT_BANDS: Bands = [
     band(1.7, 16.9, -0.6),   // red
     band(-2.0, 11.4, -1.7),  // orange
@@ -384,10 +381,10 @@ pub struct Profile {
     pub film: Character,
     /// The film-and-print model (ChromaGold 200), in place of the dye matrix and curves.
     pub print: Option<PrintParams>,
-    /// Normalize as a fixed exposure lift, in stops, when the film has one (ChromaKode 64, as the
-    /// Lightroom kit's Normalize Exposure preset); `None`: Normalize is measured (ChromaGold 200).
+    /// Normalize as a fixed exposure lift, in stops, when the film has one; `None`: Normalize is
+    /// measured.
     pub fixed_exposure: Option<f32>,
-    /// Coolness as the filter loads (ChromaKode 64: 25, the kit's Cool 25; Gold has none).
+    /// Coolness as the filter loads (ChromaKode 64: 25; Gold has none).
     pub cool: f32,
     /// The print/scan tint the film's tint control (Hue, Warmth) leans toward at 100 %, and how
     /// far it leans as the filter loads.
@@ -462,7 +459,7 @@ impl Stock {
                     gate: BandGate::MUTED,
                     shift: SHIFT_BANDS,
                     hc: HC_CURVE.to_vec(),
-                    fade: FADE_CURVE.to_vec(), // the sheet's real matte: 800T's dense blacks swallow the gentle one
+                    fade: FADE_CURVE.to_vec(), // a real matte: 800T's dense blacks swallow the gentle one
                 },
                 normalize_target: GOLD_NORMALIZE_TARGET,
                 normalize_black: GOLD_NORMALIZE_BLACK,
@@ -532,8 +529,8 @@ pub struct Settings {
     pub strength: f32,
     /// Film character: grain, halation, softness (part of the base).
     pub film: Character,
-    // [k] modifiers
-    /// Coolness, in white-balance steps toward blue (the sheet's Cool 25 is 25).
+    // modifiers
+    /// Coolness, in white-balance steps toward blue (ChromaKode 64 loads at 25).
     pub cool: f32,
     pub denoise: Option<denoise::Options>,
     pub color_shift: bool,
@@ -546,7 +543,7 @@ pub struct Settings {
     pub sun: f32,
     /// Hue (ChromaStill), 0–1: how far the picture leans green-blue.
     pub hue: f32,
-    // [x] extras
+    // extras
     pub banding: bool,
 }
 
@@ -573,8 +570,8 @@ impl Default for Settings {
 }
 
 impl Settings {
-    /// These settings with every [k] and [x] modifier off and the base steps kept: what the kit's
-    /// `.RESET MODS` did, without losing the modifiers' own settings.
+    /// These settings with every extra off and the base steps kept, without losing the extras' own
+    /// settings.
     pub fn base_only(self) -> Self {
         Settings {
             normalize: self.normalize,
@@ -1024,7 +1021,7 @@ mod tests {
     #[test]
     fn kodachrome_keeps_greys_nearly_neutral_and_whites_short_of_paper() {
         let kit = Kit::new();
-        // cool, as the Lightroom kit is, but no colour cast beyond that
+        // a little cool, but no colour cast beyond that
         let mid = kit.kodachrome([0.5, 0.5, 0.5]);
         assert!(
             mid[2] >= mid[0]
@@ -1096,7 +1093,7 @@ mod tests {
             ..Settings::default()
         };
         kit.run(&mut b, 1, 1, Frame::whole(1, 1), Encoding::Screen, &s, None);
-        assert!((b[0] - K64_FADE_CURVE[0].1).abs() < 1e-3 && b[0] > 0.0); // ChromaKode: the Lightroom kit's gentle lift
+        assert!((b[0] - K64_FADE_CURVE[0].1).abs() < 1e-3 && b[0] > 0.0); // ChromaKode: the gentle lift
         let gold = Kit::for_profile(&Stock::Gold200.profile());
         let mut b = grey(1, 1, 0.0);
         gold.run(&mut b, 1, 1, Frame::whole(1, 1), Encoding::Screen, &s, None);

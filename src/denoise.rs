@@ -1,4 +1,4 @@
-//! [k] Denoise: smooths grain (brightness noise) and colour speckles with edge-aware guided
+//! Denoise: smooths grain (brightness noise) and colour speckles with edge-aware guided
 //! filters, keeping edges and some of the finest texture. No host calls.
 
 use crate::color::LUMA_601;
@@ -36,7 +36,7 @@ pub struct Sizes {
     pub color_edge: f32,
 }
 
-/// The sheet's table at a 2048 px long side: (amount, grain radius, grain edge limit, colour radius).
+/// The levels at a 2048 px long side: (amount, grain radius, grain edge limit, colour radius).
 const TABLE: [(f32, f32, f32, f32); 3] = [
     (25.0, 2.0, 0.019, 4.0),
     (50.0, 2.0, 0.027, 5.0),

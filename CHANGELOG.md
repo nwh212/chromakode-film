@@ -38,11 +38,11 @@ First release: four filters sharing one engine.
 
 - The Kodachrome 64 look (dye matrix, colour bands, tone curves, saturation), with Strength,
   tuned to match reference renders.
-- Normalize is off by default; when on, a fixed lift of about half a stop before the film, as the
-  kit's Normalize Exposure. Nothing to measure.
+- Normalize is off by default; when on, a fixed lift of about half a stop before the film.
+  Nothing to measure.
 - The film's character, on by default: Grain, Halation and Softness sliders, and a highlight
   shoulder so brightening never clips.
-- Extras, always run in the kit's order: Coolness (0–100, 25 = the sheet's Cool 25), Denoise (Off / Light / Medium / Strong / Max),
+- Extras, always run in a fixed order: Coolness (0–100, default 25), Denoise (Off / Light / Medium / Strong / Max),
   Color Shift, High contrast, Vintage, Lifted Fade, Warm Band (a warm grade plus fine noise against banding).
 - Base only: compare against the bare film without losing your setup.
 - Short labels that fit the panel's name column.

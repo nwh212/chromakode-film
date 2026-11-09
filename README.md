@@ -33,7 +33,7 @@ file on the window. Install as many films as you like; each shows up as its own 
 Add **ChromaKode 64** to a photo in **Develop ▸ Plug-in Filters** and the photo has the
 Kodachrome 64 look straight away: purer primaries, rich reds, olive greens, deep blue skies,
 dense shadows and whites that stop short of paper white. Then tick whichever extras you want. They always run in the
-kit's fixed order, whatever order you tick them in:
+filter's fixed order, whatever order you tick them in:
 
 ```
 Normalize → Coolness → Denoise → Kodachrome 64 → Color Shift → High contrast → Vintage → Lifted Fade → Warm Band
@@ -49,8 +49,8 @@ develop settings change the look afterwards.
 | Control | What it does |
 | --- | --- |
 | **Strength** | 0–100 %, blends the Kodachrome 64 look with the photo as it was just before it (default 100). 0 turns the look off and leaves the extras. |
-| **Normalize** | Off by default. The Lightroom kit's Normalize Exposure: a fixed lift of about half a stop before the film. Nothing to measure. |
-| **Base only** | Turns every extra off without forgetting how you set them (the kit's `.RESET MODS`). Tick it to compare against the bare film. The Film sliders stay, as they're part of the film. |
+| **Normalize** | Off by default. A fixed lift of about half a stop before the film. Nothing to measure. |
+| **Base only** | Turns every extra off without forgetting how you set them. Tick it to compare against the bare film. The Film sliders stay, as they're part of the film. |
 
 **Film**: the film's own character, on from the start.
 
@@ -75,10 +75,10 @@ white instead of clipping, as film's shoulder does.
 
 - **Color Shift**: Kodachrome's hue nudges: yellows and greens warmer, aquas bluer, blues
   toward cyan.
-- **High contrast**: the kit's HC, an S-curve with richer colour.
+- **High contrast**: an S-curve with richer colour.
 - **Vintage**: a slide found in a box: 85 % saturation, lifted warm curves, darker corners.
-- **Lifted Fade**: the kit's gentle matte: black lifted a touch, white eased down a touch.
-- **Warm Band**: the Lightroom kit's Banding step: brighter, warm midtones, blue shadows pulled
+- **Lifted Fade**: a gentle matte: black lifted a touch, white eased down a touch.
+- **Warm Band**: brighter, warm midtones, blue shadows pulled
   down, a little more saturation, plus ±1.2/255 of fixed fine noise so smooth skies don't show
   steps. It always runs last.
 
@@ -109,8 +109,8 @@ What comes out without being painted in: greys neutral from the midtones up, war
 from the layers' different toes (a touch magenta at the very bottom), dense blacks, airy
 midtones, soft highlights that hold, and strong reds printing deep. On top, only what real Gold
 200 is known for beyond its sheet: yellows and oranges a little brighter, greens toward olive,
-reds a touch toward carmine, with muted colours taking these too (as in Lightroom's colour
-mixer). Its grain is soft, irregular
+reds a touch toward carmine, with muted colours taking these too (greys
+don't). Its grain is soft, irregular
 dye clouds, coarser than ChromaKode 64's and a little stronger in the shadows, and its halation
 lighter (negative film has an anti-halation layer). There's no Coolness: Gold is a daylight film.
 
@@ -211,7 +211,7 @@ so faces and fabric don't turn waxy. The levels:
 
 ## Measuring
 
-Neither filter measures any more: both Normalizes are fixed lifts, like the Lightroom kit's, so
+Neither filter measures any more: both Normalizes are fixed lifts, so
 neither has a Measure button. (The measuring code stays for the tools.) It used the measurement Chromaforge
 takes when you press **Measure**: the log-average brightness of the photo inside its crop (at
 most 250,000 points). It also records the photo's black level, which the filter doesn't use:
@@ -251,7 +251,7 @@ One filter at a time: `cargo build --release --target wasm32-unknown-unknown` is
 as `target/wasm32-unknown-unknown/release/chromakode.wasm`). Tests and the sample renderer take
 the same features.
 
-`cargo test` runs the kit's tests natively. `cargo run --release --example render -- photo.jpg
+`cargo test` runs the tests natively. `cargo run --release --example render -- photo.jpg
 '{"hc": true, "coolness": 25, "denoise": "Medium"}'` renders a photo as the host would and writes
 `photo.k64.png`. The parameter names are the manifest's (`src/manifest.json`).
 

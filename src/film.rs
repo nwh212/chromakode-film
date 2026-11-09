@@ -1,4 +1,4 @@
-//! The film's own character, which the recipe sheet's numbers leave out: the highlight shoulder,
+//! The film's own character beyond its colour: the highlight shoulder,
 //! halation, softness and grain. These are part of the base look (on by default, each with its
 //! own slider), not modifiers.
 //!

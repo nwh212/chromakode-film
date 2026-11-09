@@ -4,7 +4,7 @@
 //! - ChromaKode 64 (the default build): Kodachrome 64 slide film, the Kodachrome 64 Kit.
 //! - ChromaGold 200 (`--features gold`): Kodak Gold 200 colour negative film, printed.
 //!
-//! - `kit.rs`: the recipe sheet's steps, in order (no host calls).
+//! - `kit.rs`: the steps, in order (no host calls).
 //! - `film.rs`: the film's character: highlight shoulder, halation, softness, grain.
 //! - `denoise.rs`: the Denoise modifier (no host calls).
 //! - `color.rs`: curves, colour bands, sRGB, noise.
@@ -101,9 +101,8 @@ fn percent(p: &Value, k: &str, default: f64) -> f32 {
     (number(p, k, default) / 100.0).clamp(0.0, 1.0) as f32
 }
 
-/// The Denoise menu as options: one choice instead of the sheet's six controls. Every level
-/// smooths grain and colour speckles and keeps some fine detail, as the sheet's defaults do;
-/// the levels are the sheet's table rows.
+/// The Denoise menu as options: one choice instead of six controls. Every level smooths grain and
+/// colour speckles and keeps some fine detail; the levels are the table's rows.
 pub fn denoise_level(p: &Value) -> Option<denoise::Options> {
     let base = denoise::Options::default();
     match p.get("denoise").and_then(Value::as_str)? {
@@ -140,7 +139,7 @@ pub fn default_settings() -> Settings {
     }
 }
 
-/// The panel's values as the kit's settings. Controls a film's panel doesn't have stay off.
+/// The panel's values as the filter's settings. Controls a film's panel doesn't have stay off.
 pub fn settings(p: &Value) -> Settings {
     let defaults = default_settings();
     let d = defaults.film;
