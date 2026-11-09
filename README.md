@@ -76,7 +76,7 @@ white instead of clipping, as film's shoulder does.
 - **Color Shift**: Kodachrome's hue nudges: yellows and greens warmer, aquas bluer, blues
   toward cyan.
 - **High contrast**: the kit's HC, an S-curve with richer colour.
-- **Vintage**: the sheet's Found, a slide found in a box: 85 % saturation, lifted warm curves, darker corners.
+- **Vintage**: a slide found in a box: 85 % saturation, lifted warm curves, darker corners.
 - **Lifted Fade**: the kit's gentle matte: black lifted a touch, white eased down a touch.
 - **Warm Band**: the Lightroom kit's Banding step: brighter, warm midtones, blue shadows pulled
   down, a little more saturation, plus ±1.2/255 of fixed fine noise so smooth skies don't show
@@ -160,7 +160,7 @@ context around each band than the other films, so this filter asks Chromaforge f
 | **Hue** (0–100, default 30) | How far the picture leans green-blue, as 800T usually does (a tungsten film under mixed and daylight light, scanned). 0 is neutral, as if shot under the 3200 K light it's balanced for; higher leans further. |
 | **Denoise** | As in the other films. |
 | **Exposure** (−2 … +3) | How the negative was exposed, as in ChromaGold: along the film's own curves, printed back to normal. |
-| **Lifted Fade** | A real matte: black lifted to 22/255, white eased to 249/255 (the sheet's curve; the gentle Lightroom-kit one disappears in 800T's dense blacks). There's no Banding Fix: 800T's grain already breaks up banding. |
+| **Lifted Fade** | A real matte: black lifted to 22/255, white eased to 249/255 (the gentle fade ChromaKode 64 uses disappears in 800T's dense blacks). There's no Banding Fix: 800T's grain already breaks up banding. |
 
 # ChromaLome Purple
 
@@ -205,7 +205,7 @@ so faces and fabric don't turn waxy. The levels:
 | Level | Sheet setting |
 | --- | --- |
 | Light | Amount 25 |
-| Medium | Amount 50 (the sheet's default) |
+| Medium | Amount 50 (the default) |
 | Strong | Amount 100 |
 | Max | Amount 100 + Extra strong (keeps less texture) |
 
