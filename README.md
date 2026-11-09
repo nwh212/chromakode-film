@@ -244,7 +244,7 @@ show as one list.
   colours change smoothly. ChromaKode then matches Lightroom as closely as Chromaforge's rendering
   of the raw matches Lightroom's; making those match is a camera-profile job for Chromaforge.
 
-- **[x] Slide Border is left out**, by choice: a frame is better added at export.
+- **No borders**, in any of the films: a filter changes the picture's colours and never draws a frame around it.
 - **[k] Auto Geometry isn't in the filter.** A pixel filter changes colours and can't move pixels
   or crop, so perspective correction belongs to Chromaforge's own **Upright** (Develop ▸
   Transform), which does exactly what the sheet describes (level horizon, upright verticals,
