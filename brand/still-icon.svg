@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="512" height="512">
+<title>ChromaStill 800T</title>
+<rect x="10" y="10" width="236" height="236" rx="44" fill="#16140f" stroke="#2c2820" stroke-width="3"/>
+<rect x="62" y="62" width="132" height="132" rx="24" fill="none" stroke="#8f897d" stroke-width="15"/>
+<g transform="translate(0 0)" fill="none" stroke="#e8261b" stroke-opacity="0.1" stroke-width="43" stroke-linecap="round" stroke-linejoin="round"><path d="M 154 98 H 124 A 15 15 0 0 0 124 128 H 132 A 15 15 0 0 1 132 158 H 102"/></g><g transform="translate(0 0)" fill="none" stroke="#e8261b" stroke-opacity="0.16" stroke-width="33" stroke-linecap="round" stroke-linejoin="round"><path d="M 154 98 H 124 A 15 15 0 0 0 124 128 H 132 A 15 15 0 0 1 132 158 H 102"/></g><g transform="translate(0 0)" fill="none" stroke="#e8261b" stroke-opacity="0.28" stroke-width="23" stroke-linecap="round" stroke-linejoin="round"><path d="M 154 98 H 124 A 15 15 0 0 0 124 128 H 132 A 15 15 0 0 1 132 158 H 102"/></g><g transform="translate(0 0)" fill="none" stroke="#e8261b" stroke-width="13" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="2"><path d="M 154 98 H 124 A 15 15 0 0 0 124 128 H 132 A 15 15 0 0 1 132 158 H 102"/></g>
+</svg>

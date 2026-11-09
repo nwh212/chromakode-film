@@ -1,0 +1,115 @@
+{
+  "id": "io.github.nwh212.chromastill",
+  "name": "ChromaStill 800T",
+  "version": "@version",
+  "kind": "filter",
+  "stage": "display",
+  "description": "CineStill 800T: Kodak VISION3 500T cinema film with its rem-jet removed, as a physical model of the negative and its print from Kodak's data sheet, with the film's famous red halation around lights and bright edges, soft grain and softness. Hue sets how far the picture leans green-blue, as 800T usually does; Exposure shifts the negative as a real under- or over-exposure would. Meant for the Display stage.",
+  "author": "nwh212",
+  "icon": "@icon",
+  "header": {
+    "dark": "@header_dark",
+    "light": "@header_light"
+  },
+  "overlap": 48,
+  "params": {
+    "strength": {
+      "type": "number",
+      "label": "Strength",
+      "min": 0,
+      "max": 100,
+      "default": 100
+    },
+    "normalize": {
+      "type": "bool",
+      "label": "Normalize",
+      "default": false
+    },
+    "bypass": {
+      "type": "bool",
+      "label": "Base only",
+      "default": false
+    },
+    "grain": {
+      "type": "number",
+      "label": "Grain",
+      "min": 0,
+      "max": 100,
+      "default": 60
+    },
+    "halation": {
+      "type": "number",
+      "label": "Halation",
+      "min": 0,
+      "max": 100,
+      "default": 70
+    },
+    "softness": {
+      "type": "number",
+      "label": "Softness",
+      "min": 0,
+      "max": 100,
+      "default": 25
+    },
+    "hue": {
+      "type": "number",
+      "label": "Hue",
+      "min": 0,
+      "max": 100,
+      "default": 30
+    },
+    "denoise": {
+      "type": "choice",
+      "label": "Denoise",
+      "options": [
+        "Off",
+        "Light",
+        "Medium",
+        "Strong",
+        "Max"
+      ],
+      "default": "Off"
+    },
+    "exposure": {
+      "type": "number",
+      "label": "Exposure",
+      "min": -2,
+      "max": 3,
+      "default": 0
+    },
+    "liftedFade": {
+      "type": "bool",
+      "label": "Lifted Fade",
+      "default": false
+    }
+  },
+  "sections": [
+    {
+      "label": "Film",
+      "params": [
+        "grain",
+        "halation",
+        "softness"
+      ]
+    },
+    {
+      "label": "Before the look",
+      "params": [
+        "hue",
+        "denoise"
+      ]
+    },
+    {
+      "label": "The negative",
+      "params": [
+        "exposure"
+      ]
+    },
+    {
+      "label": "After the look",
+      "params": [
+        "liftedFade"
+      ]
+    }
+  ]
+}

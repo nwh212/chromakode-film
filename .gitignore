@@ -1,0 +1,16 @@
+target/
+Cargo.lock
+*.k64.png
+# comparison sheets and test renders: made from personal photos, kept local
+compare-*.png
+*.i100.png
+*.i200.png
+*.i400.png
+# reference documents and photos stay local
+*.pdf
+*.jpg
+*.jpeg
+*.webp
+*.ARW
+*.arw
+*.dng

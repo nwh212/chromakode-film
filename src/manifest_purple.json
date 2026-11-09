@@ -1,0 +1,118 @@
+{
+  "id": "io.github.nwh212.chromalome",
+  "name": "ChromaLome Purple",
+  "version": "@version",
+  "kind": "filter",
+  "stage": "display",
+  "description": "LomoChrome Purple: greens turn purple, blues go teal, yellows pink, reds stay red. A C-41 film model whose layers see swapped light, fitted to a ColorChecker shot on the real film, with smooth colour all the way through (no hard edges between colours). ISO is the speed you rated it at: 400 well exposed (clean whites, deep violet, teal), 100 two stops over (faded, pastel, cream-green highlights). Warmth leans the scan toward cream highlights. Meant for the Display stage.",
+  "author": "nwh212",
+  "icon": "@icon",
+  "header": {
+    "dark": "@header_dark",
+    "light": "@header_light"
+  },
+  "overlap": 24,
+  "params": {
+    "strength": {
+      "type": "number",
+      "label": "Strength",
+      "min": 0,
+      "max": 100,
+      "default": 100
+    },
+    "normalize": {
+      "type": "bool",
+      "label": "Normalize",
+      "default": false
+    },
+    "bypass": {
+      "type": "bool",
+      "label": "Base only",
+      "default": false
+    },
+    "grain": {
+      "type": "number",
+      "label": "Grain",
+      "min": 0,
+      "max": 100,
+      "default": 45
+    },
+    "halation": {
+      "type": "number",
+      "label": "Halation",
+      "min": 0,
+      "max": 100,
+      "default": 25
+    },
+    "softness": {
+      "type": "number",
+      "label": "Softness",
+      "min": 0,
+      "max": 100,
+      "default": 25
+    },
+    "denoise": {
+      "type": "choice",
+      "label": "Denoise",
+      "options": [
+        "Off",
+        "Light",
+        "Medium",
+        "Strong",
+        "Max"
+      ],
+      "default": "Off"
+    },
+    "iso": {
+      "type": "choice",
+      "label": "ISO",
+      "options": [
+        "100",
+        "200",
+        "400"
+      ],
+      "default": "400"
+    },
+    "warmth": {
+      "type": "number",
+      "label": "Warmth",
+      "min": 0,
+      "max": 100,
+      "default": 30
+    },
+    "liftedFade": {
+      "type": "bool",
+      "label": "Lifted Fade",
+      "default": false
+    }
+  },
+  "sections": [
+    {
+      "label": "Film",
+      "params": [
+        "grain",
+        "halation",
+        "softness"
+      ]
+    },
+    {
+      "label": "Before the look",
+      "params": [
+        "denoise"
+      ]
+    },
+    {
+      "label": "The film",
+      "params": [
+        "iso",
+        "warmth"
+      ]
+    },
+    {
+      "label": "After the look",
+      "params": [
+        "liftedFade"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "id": "io.github.nwh212.chromakode",
+  "name": "ChromaKode 64",
+  "version": "@version",
+  "kind": "filter",
+  "stage": "display",
+  "description": "Kodachrome 64 slide film as the Lightroom kit makes it: purer primaries, rich reds, olive greens, deep blue skies, dense shadows, with the film's grain, halation and softness. The look works as soon as you add it; tick extras to build on it, and they always run in the kit's order. Meant for the Display stage.",
+  "author": "nwh212",
+  "icon": "@icon",
+  "header": {
+    "dark": "@header_dark",
+    "light": "@header_light"
+  },
+  "overlap": 24,
+  "params": {
+    "strength": {
+      "type": "number",
+      "label": "Strength",
+      "min": 0,
+      "max": 100,
+      "default": 100
+    },
+    "normalize": {
+      "type": "bool",
+      "label": "Normalize",
+      "default": false
+    },
+    "bypass": {
+      "type": "bool",
+      "label": "Base only",
+      "default": false
+    },
+    "grain": {
+      "type": "number",
+      "label": "Grain",
+      "min": 0,
+      "max": 100,
+      "default": 50
+    },
+    "halation": {
+      "type": "number",
+      "label": "Halation",
+      "min": 0,
+      "max": 100,
+      "default": 50
+    },
+    "softness": {
+      "type": "number",
+      "label": "Softness",
+      "min": 0,
+      "max": 100,
+      "default": 30
+    },
+    "coolness": {
+      "type": "number",
+      "label": "Coolness",
+      "min": 0,
+      "max": 100,
+      "default": 25
+    },
+    "denoise": {
+      "type": "choice",
+      "label": "Denoise",
+      "options": [
+        "Off",
+        "Light",
+        "Medium",
+        "Strong",
+        "Max"
+      ],
+      "default": "Off"
+    },
+    "colorShift": {
+      "type": "bool",
+      "label": "Color Shift",
+      "default": false
+    },
+    "hc": {
+      "type": "bool",
+      "label": "High contrast",
+      "default": false
+    },
+    "found": {
+      "type": "bool",
+      "label": "Vintage",
+      "default": false
+    },
+    "liftedFade": {
+      "type": "bool",
+      "label": "Lifted Fade",
+      "default": false
+    },
+    "bandingFix": {
+      "type": "bool",
+      "label": "Warm Band",
+      "default": false
+    }
+  },
+  "sections": [
+    {
+      "label": "Film",
+      "params": [
+        "grain",
+        "halation",
+        "softness"
+      ]
+    },
+    {
+      "label": "Before the look",
+      "params": [
+        "coolness",
+        "denoise"
+      ]
+    },
+    {
+      "label": "After the look",
+      "params": [
+        "colorShift",
+        "hc",
+        "found",
+        "liftedFade",
+        "bandingFix"
+      ]
+    }
+  ]
+}

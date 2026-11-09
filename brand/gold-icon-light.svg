@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="512" height="512">
+<title>ChromaGold 200</title>
+<defs><linearGradient id="golddye" gradientUnits="userSpaceOnUse" x1="0" y1="62" x2="0" y2="194"><stop offset="0" stop-color="#f5b800"/><stop offset="0.333" stop-color="#f5b800"/><stop offset="0.333" stop-color="#ee7d1a"/><stop offset="0.667" stop-color="#ee7d1a"/><stop offset="0.667" stop-color="#d8361f"/><stop offset="1" stop-color="#d8361f"/></linearGradient></defs>
+<rect x="10" y="10" width="236" height="236" rx="44" fill="#f4efe4" stroke="#dcd2bd" stroke-width="3"/>
+<rect x="62" y="62" width="132" height="132" rx="24" fill="none" stroke="url(#golddye)" stroke-width="15"/>
+<g fill="none" stroke="#1b1915" stroke-width="13" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="2">
+<path d="M 156 98 H 124 A 22 22 0 0 0 102 120 V 136 A 22 22 0 0 0 124 158 H 152 V 130 H 130"/>
+</g>
+</svg>
