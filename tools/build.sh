@@ -1,6 +1,6 @@
 #!/bin/sh
-# Builds every filter into dist/: ChromaKode 64 (chromakode.wasm), ChromaGold 200 (chromagold.wasm)
-# and ChromaStill 800T (chromastill.wasm).
+# Builds every filter into dist/: ChromaKode 64 (chromakode.wasm), ChromaGold 200 (chromagold.wasm),
+# ChromaStill 800T (chromastill.wasm) and ChromaLome Purple (chromalome.wasm).
 set -e
 cd "$(dirname "$0")/.."
 out=target/wasm32-unknown-unknown/release/chromakode.wasm

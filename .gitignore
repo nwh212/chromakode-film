@@ -1,5 +1,4 @@
 target/
-Cargo.lock
 *.k64.png
 # comparison sheets and test renders: made from personal photos, kept local
 compare-*.png

@@ -1,0 +1,39 @@
+# On a version tag (v0.1.0, ...): run the tests for every film, build the four filters and publish
+# a GitHub release with the wasms attached and that version's CHANGELOG section as its notes.
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+      - name: Test every film
+        run: |
+          cargo test --locked
+          for f in gold still purple; do cargo test --locked --features "$f"; done
+      - name: Build the filters
+        run: sh tools/build.sh --locked
+      - name: Release notes from the changelog
+        run: |
+          v="${GITHUB_REF_NAME#v}"
+          awk -v v="$v" '$0 ~ "^## " v " " {on=1; next} /^## / {on=0} on' CHANGELOG.md > notes.md
+          test -s notes.md
+      - uses: softprops/action-gh-release@v2
+        with:
+          name: ChromaKode Film ${{ github.ref_name }}
+          body_path: notes.md
+          files: |
+            dist/chromakode.wasm
+            dist/chromagold.wasm
+            dist/chromastill.wasm
+            dist/chromalome.wasm

@@ -12,14 +12,21 @@
 
 ---
 
-ChromaKode Film is a set of filters that share one engine. Each has its own panel:
+ChromaKode Film is a set of filters that share one engine. Each has its own panel.
 
-| Filter | File | The film |
+## Download
+
+Each link downloads that film's plug-in, always the newest release:
+
+| Film | Download | What it is |
 | --- | --- | --- |
-| **ChromaKode 64** | `dist/chromakode.wasm` | Kodachrome 64 slide film |
-| **ChromaGold 200** | `dist/chromagold.wasm` | Kodak Gold 200 colour negative film, printed |
-| **ChromaStill 800T** | `dist/chromastill.wasm` | CineStill 800T (Kodak VISION3 500T, rem-jet removed), printed |
-| **ChromaLome Purple** | `dist/chromalome.wasm` | LomoChrome Purple: greens purple, blues teal, yellows pink |
+| **ChromaKode 64** | [⬇ chromakode.wasm](https://github.com/nwh212/chromakode-film/releases/latest/download/chromakode.wasm) | Kodachrome 64 slide film |
+| **ChromaGold 200** | [⬇ chromagold.wasm](https://github.com/nwh212/chromakode-film/releases/latest/download/chromagold.wasm) | Kodak Gold 200 colour negative film, printed |
+| **ChromaStill 800T** | [⬇ chromastill.wasm](https://github.com/nwh212/chromakode-film/releases/latest/download/chromastill.wasm) | CineStill 800T (Kodak VISION3 500T, rem-jet removed), printed |
+| **ChromaLome Purple** | [⬇ chromalome.wasm](https://github.com/nwh212/chromakode-film/releases/latest/download/chromalome.wasm) | LomoChrome Purple: greens purple, blues teal, yellows pink |
+
+Then in Chromaforge: **File ▸ Plug-ins ▸ Plug-in Manager… ▸ Install from File…**, or drop the
+file on the window. Install as many films as you like; each shows up as its own filter.
 
 # ChromaKode 64
 
@@ -222,14 +229,14 @@ sets where the photo starts, you move it from there.
 
 ## Install
 
-1. Get `chromakode.wasm` (in `dist/`, or build it, below).
+1. Download a film from the table under **Download** at the top (or take it from `dist/`, or
+   build it, below).
 2. In Chromaforge: **File ▸ Plug-ins ▸ Plug-in Manager… ▸ Install from File…**, or drop the file
    on the window. Pixel filters ask for no permissions.
 
 Its icon and header picture show in hosts with the plug-in pictures feature. Others show the
-name and an icon drawn from the id. The *Measure as a Roll* menu and the folding sections need a
-host with the batch/roll measurement PR. Without it, Measure measures one photo and the sections
-show as one list.
+name and an icon drawn from the id. The folding sections need a host that supports them; without
+it the settings show as one list.
 
 ## Notes on the recipe sheet
 

@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0 (unreleased)
+## 0.1.0 (2026-11-08)
 
 First release: four filters sharing one engine.
 
@@ -32,17 +32,16 @@ First release: four filters sharing one engine.
 - Exposure (−2 … +3): moves the scene along the film's curves and prints it back to normal, so
   under- and over-exposure look as they do on real Gold. Sun Cast: Gold's yellow cast in harsh sun.
   Normalize (a fixed lift), Denoise, Lifted Fade, Banding Fix (no Coolness: it's a daylight film).
-- Neither filter needs Measure.
 - ChromaGold 200 icon and header logo.
 
 **ChromaKode 64** (`chromakode.wasm`)
 
 - The Kodachrome 64 look (dye matrix, colour bands, tone curves, saturation), with Strength,
   tuned to match reference renders.
-- Normalize is off by default; when on, it sets the brightness (from Measure) and a gentle, fixed black point.
+- Normalize is off by default; when on, a fixed lift of about half a stop before the film, as the
+  kit's Normalize Exposure. Nothing to measure.
 - The film's character, on by default: Grain, Halation and Softness sliders, and a highlight
   shoulder so brightening never clips.
-- Normalize Exposure from Chromaforge's Measure (per photo or one measurement for a roll).
 - Extras, always run in the kit's order: Coolness (0–100, 25 = the sheet's Cool 25), Denoise (Off / Light / Medium / Strong / Max),
   Color Shift, High contrast, Vintage, Lifted Fade, Warm Band (a warm grade plus fine noise against banding).
 - Base only: compare against the bare film without losing your setup.

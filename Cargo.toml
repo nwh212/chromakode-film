@@ -1,6 +1,6 @@
 [package]
 name = "chromakode"
-description = "Chromaforge pixel filters: ChromaKode Film, film stocks (ChromaKode 64, ChromaGold 200) sharing one engine"
+description = "Chromaforge pixel filters: ChromaKode Film, film stocks (ChromaKode 64, ChromaGold 200, ChromaStill 800T, ChromaLome Purple) sharing one engine"
 version = "0.1.0"
 edition = "2024"
 license = "MIT"
