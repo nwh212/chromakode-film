@@ -52,7 +52,7 @@ develop settings change the look afterwards.
 | **Normalize** | Off by default. The Lightroom kit's Normalize Exposure: a fixed lift of about half a stop before the film. Nothing to measure. |
 | **Base only** | Turns every extra off without forgetting how you set them (the kit's `.RESET MODS`). Tick it to compare against the bare film. The Film sliders stay, as they're part of the film. |
 
-**Film**: the film's own character, on from the start. The recipe sheet's numbers leave it out.
+**Film**: the film's own character, on from the start.
 
 - **Grain** (default 50): soft, clumpy, mostly black-and-white grain with a little colour, fixed
   to the photo so it doesn't crawl between previews.
@@ -200,7 +200,7 @@ pictures and grainy scans. Clean photos don't need it.
 
 It works on two things at once, keeping edges sharp: **grain** (speckles of brightness) and
 **colour speckles** (red/green/blue blotches), and it puts back a little of the finest texture
-so faces and fabric don't turn waxy. The levels are the recipe sheet's table:
+so faces and fabric don't turn waxy. The levels:
 
 | Level | Sheet setting |
 | --- | --- |
@@ -237,38 +237,6 @@ sets where the photo starts, you move it from there.
 Its icon and header picture show in hosts with the plug-in pictures feature. Others show the
 name and an icon drawn from the id. The folding sections need a host that supports them; without
 it the settings show as one list.
-
-## Notes on the recipe sheet
-
-- **The look is fitted to the Lightroom kit, step by step.** Every number in ChromaKode 64 (the
-  Kodachrome 64 step's dye matrix, colour bands, curves and saturation; Normalize's lift; Cool 25;
-  Color Shift; HC; Lifted Fade; Warm Band) starts from the sheet's and is fitted to the kit in
-  Lightroom: Lightroom's own rendering of a photo with no look, and after each step in turn
-  (Kodachrome 64, + Normalize, + Color Shift, + Cool 25, + HC, + Lifted Fade, + Banding), so every
-  checkbox does what that preset does. HC, Lifted Fade and Warm Band were checked on a second
-  photo. As in Lightroom's colour mixer, muted colours take the colour changes too; greys don't.
-  Hue shifts are held close to the sheet's and neighbouring bands' close to each other, so
-  colours change smoothly. ChromaKode then matches Lightroom as closely as Chromaforge's rendering
-  of the raw matches Lightroom's; making those match is a camera-profile job for Chromaforge.
-
-- **No borders**, in any of the films: a filter changes the picture's colours and never draws a frame around it.
-- **[k] Auto Geometry isn't in the filter.** A pixel filter changes colours and can't move pixels
-  or crop, so perspective correction belongs to Chromaforge's own **Upright** (Develop ▸
-  Transform), which does exactly what the sheet describes (level horizon, upright verticals,
-  crop the empty corners).
-- **Denoise's filter sizes** follow the photo (the table is for a 2048 px long side, scaled ×0.35
-  to ×2.5). A filter only sees a band of the photo plus 24 pixels around it, shared with Softness,
-  so a radius is held to 9 px, and Halation's glow to 8 px per pass. That only bites at the
-  largest sizes: Strong and Max on big exports get a slightly smaller colour filter than the table
-  asks for.
-- **Colour bands** use eight bands (red 0°, orange 30°, yellow 60°, green 120°, aqua 180°, blue 240°,
-  purple 270°, magenta 300°), each colour blended smoothly between the two nearest. Greys never
-  move, and the stronger a colour, the more of its band's change it gets.
-- **Curves** are smooth monotone curves through the sheet's points, so they never overshoot
-  between points.
-- Steps that work in linear light (Normalize, Coolness, Halation) do. The rest work on 0–1 screen values,
-  as the sheet gives them. Both Chromaforge stages work: at the Source stage or on an HDR render
-  the samples arrive linear and go back linear.
 
 ## Build
 
