@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.1 (2026-11-12)
+
+- All four filters: the Plug-in Manager's About tab now links to the project page, the source and
+  this changelog, shows the MIT licence, and offers "Report a Problem" (opens GitHub issues).
+  Needs a Chromaforge build with About links; older hosts ignore them. No change to the looks.
+
 ## 0.1.0 (2026-11-08)
 
 First release: four filters sharing one engine.

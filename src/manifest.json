@@ -6,6 +6,10 @@
   "stage": "display",
   "description": "Kodachrome 64 slide film: purer primaries, rich reds, olive greens, deep blue skies, dense shadows, with the film's grain, halation and softness. The look works as soon as you add it; tick extras to build on it, and they always run in a fixed order. Meant for the Display stage.",
   "author": "nwh212",
+  "homepage": "https://github.com/nwh212/chromakode-film",
+  "repository": "https://github.com/nwh212/chromakode-film",
+  "changelog": "https://github.com/nwh212/chromakode-film/blob/main/CHANGELOG.md",
+  "license": "MIT",
   "icon": "@icon",
   "header": {
     "dark": "@header_dark",

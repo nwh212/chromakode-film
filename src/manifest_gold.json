@@ -6,6 +6,10 @@
   "stage": "display",
   "description": "Kodak Gold 200 colour negative film, printed: a physical model of the C-41 negative and its print from Kodak's data sheet, with golden yellows and oranges, deep carmine reds, olive greens, dense warm shadows and highlights that hold, and the film's soft grain, halation and softness. Exposure shifts the negative as a real under- or over-exposure would. Meant for the Display stage.",
   "author": "nwh212",
+  "homepage": "https://github.com/nwh212/chromakode-film",
+  "repository": "https://github.com/nwh212/chromakode-film",
+  "changelog": "https://github.com/nwh212/chromakode-film/blob/main/CHANGELOG.md",
+  "license": "MIT",
   "icon": "@icon",
   "header": {
     "dark": "@header_dark",

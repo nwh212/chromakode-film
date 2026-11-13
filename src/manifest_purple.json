@@ -6,6 +6,10 @@
   "stage": "display",
   "description": "LomoChrome Purple: greens turn purple, blues go teal, yellows pink, reds stay red. A C-41 film model whose layers see swapped light, fitted to a ColorChecker shot on the real film, with smooth colour all the way through (no hard edges between colours). ISO is the speed you rated it at: 400 well exposed (clean whites, deep violet, teal), 100 two stops over (faded, pastel, cream-green highlights). Warmth leans the scan toward cream highlights. Meant for the Display stage.",
   "author": "nwh212",
+  "homepage": "https://github.com/nwh212/chromakode-film",
+  "repository": "https://github.com/nwh212/chromakode-film",
+  "changelog": "https://github.com/nwh212/chromakode-film/blob/main/CHANGELOG.md",
+  "license": "MIT",
   "icon": "@icon",
   "header": {
     "dark": "@header_dark",
